@@ -22,6 +22,7 @@ A feature-rich mobile application built with React Native and Expo that helps yo
 ## 📋 Table of Contents
 
 - [✨ Features](#-features)
+- [📸 Screenshots](#-screenshots)
 - [🚀 Quick Start](#-quick-start)
 - [📱 Manual Testing Guide](#-manual-testing-guide)
 - [🏗️ Development Story](#️-development-story)
@@ -93,6 +94,21 @@ eas build --platform all
 - **Modal System**: Organized menus for different app sections
 - **Responsive Design**: Works seamlessly on both iOS and Android
 - **Permission Handling**: Graceful calendar permission requests
+
+## 📸 Screenshots
+
+Want to see the app in action? Check out our comprehensive screenshot gallery showcasing all the major features and UI components.
+
+**[📱 View All Screenshots →](SCREENSHOTS.md)**
+
+The screenshots demonstrate:
+- Main interface and date selection
+- Custom calendar widget with visual indicators
+- Past office days management
+- Month statistics and analytics
+- Menu navigation and modal interactions
+
+*Screenshots captured during late-night development sessions using Expo Go on Android.*
 
 ## 🚀 Quick Start
 
@@ -182,7 +198,7 @@ The result? A fully-featured office tracking app that would typically take weeks
 ### Unit Tests
 The app includes a comprehensive test suite covering all major functionality:
 
-```bash
+   ```bash
 # Run all tests
 npm test
 
