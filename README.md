@@ -4,6 +4,69 @@ A feature-rich mobile application built with React Native and Expo that helps yo
 
 > **Built with ❤️ and AI assistance** - This app was vibe-coded using Cursor in just a couple of hours on a Saturday afternoon. It's amazing what you can build when you combine human creativity with AI tooling!
 
+## 📊 Repository Stats
+
+[![GitHub stars](https://img.shields.io/github/stars/navinvarma/officedaytracker?style=social)](https://github.com/navinvarma/officedaytracker/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/navinvarma/officedaytracker?style=social)](https://github.com/navinvarma/officedaytracker/network/members)
+[![GitHub issues](https://img.shields.io/github/issues/navinvarma/officedaytracker)](https://github.com/navinvarma/officedaytracker/issues)
+[![GitHub pull requests](https://img.shields.io/github/issues-pr/navinvarma/officedaytracker)](https://github.com/navinvarma/officedaytracker/pulls)
+[![GitHub license](https://img.shields.io/github/license/navinvarma/officedaytracker)](https://github.com/navinvarma/officedaytracker/blob/main/LICENSE)
+
+[![React Native](https://img.shields.io/badge/React%20Native-0.73.0-blue.svg)](https://reactnative.dev/)
+[![Expo](https://img.shields.io/badge/Expo-SDK%2053-000000.svg)](https://expo.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.8.3-blue.svg)](https://www.typescriptlang.org/)
+[![Jest](https://img.shields.io/badge/Jest-29.7.0-green.svg)](https://jestjs.io/)
+
+**⭐ Star this repo if you find it helpful!**
+
+## 📋 Table of Contents
+
+- [✨ Features](#-features)
+- [🚀 Quick Start](#-quick-start)
+- [📱 Manual Testing Guide](#-manual-testing-guide)
+- [🏗️ Development Story](#️-development-story)
+- [🧪 Testing](#-testing)
+- [🛠️ Technical Architecture](#️-technical-architecture)
+- [📋 Permissions](#-permissions)
+- [🚀 Building for Production](#-building-for-production)
+- [🔮 Future Enhancements](#-future-enhancements)
+- [🤝 Contributing](#-contributing)
+- [📄 License](#-license)
+- [🆘 Support](#-support)
+
+## 🎯 Project Overview
+
+**Office Day Tracker** is a modern React Native mobile application that transforms how you track your office attendance. Built with the latest Expo SDK and TypeScript, it features a beautiful calendar interface, comprehensive statistics, and seamless calendar integration.
+
+### 🚀 **What Makes It Special**
+- **AI-Assisted Development**: Built in just a few hours using Cursor AI
+- **Modern Tech Stack**: Latest React Native, Expo SDK 53, and TypeScript
+- **Beautiful UI/UX**: Custom calendar widget with smooth animations
+- **Comprehensive Testing**: 67% test coverage with 10 passing tests
+- **Real-time Updates**: Instant calendar highlighting and statistics
+
+### 📱 **Perfect For**
+- Remote workers tracking office days
+- HR teams monitoring attendance
+- Individuals wanting to analyze work patterns
+- Anyone who loves well-designed mobile apps
+
+## 🚀 Getting Started
+
+```bash
+# Quick setup
+git clone https://github.com/navinvarma/officedaytracker.git
+cd officedaytracker
+npm install
+npx expo start
+
+# Run tests
+npm test
+
+# Build for production
+eas build --platform all
+```
+
 ## ✨ Features
 
 ### 🎯 Core Functionality
