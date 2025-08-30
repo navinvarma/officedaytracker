@@ -1,0 +1,35 @@
+{
+  "name": "office-day-tracker",
+  "version": "1.0.0",
+  "main": "node_modules/expo/AppEntry.js",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "test:ci": "jest --ci --coverage --watchAll=false"
+  },
+  "dependencies": {
+    "expo": "~53.0.22",
+    "expo-calendar": "~14.1.4",
+    "expo-status-bar": "~2.2.3",
+    "react": "19.0.0",
+    "react-native": "0.79.5",
+    "react-native-safe-area-context": "5.4.0",
+    "react-native-screens": "~4.11.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.0",
+    "@types/react": "~19.0.10",
+    "@types/react-native": "~0.73.0",
+    "typescript": "~5.8.3",
+    "@testing-library/react-native": "^12.0.0",
+    "jest": "^29.7.0",
+    "jest-expo": "~53.0.0",
+    "@types/jest": "^29.5.12"
+  },
+  "private": true
+}

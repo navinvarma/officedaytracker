@@ -1,0 +1,42 @@
+{
+  "expo": {
+    "name": "Office Day Tracker",
+    "slug": "office-day-tracker",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSCalendarsUsageDescription": "This app needs access to your calendar to log office days."
+      }
+    },
+    "android": {
+      "package": "com.officedaytracker.app",
+      "versionCode": 1,
+      "adaptiveIcon": {
+        "backgroundColor": "#ffffff"
+      },
+      "permissions": [
+        "READ_CALENDAR",
+        "WRITE_CALENDAR"
+      ]
+    },
+    "web": {},
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "plugins": [
+      [
+        "expo-calendar",
+        {
+          "calendarPermission": "Allow Office Day Tracker to access your calendar to log office days."
+        }
+      ]
+    ]
+  }
+}
