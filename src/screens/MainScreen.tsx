@@ -52,6 +52,11 @@ export default function MainScreen() {
         }
     }, [showDatePicker]);
 
+    // Recalculate month stats whenever pastOfficeDays changes
+    useEffect(() => {
+        calculateMonthStats();
+    }, [pastOfficeDays]);
+
     const setupApp = async () => {
         try {
             // Request permissions
@@ -61,7 +66,7 @@ export default function MainScreen() {
                 setHasPermissions(true);
                 checkIfLoggedToday();
                 loadPastOfficeDays();
-                calculateMonthStats();
+                // calculateMonthStats() will be called automatically by useEffect when pastOfficeDays updates
             } else {
                 setHasPermissions(false);
                 setIsChecking(false);
@@ -85,8 +90,9 @@ export default function MainScreen() {
             }
 
             const today = new Date();
-            const startDate = new Date(today.getFullYear(), today.getMonth(), today.getDate());
-            const endDate = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1);
+            // Use UTC dates to avoid timezone issues
+            const startDate = new Date(Date.UTC(today.getFullYear(), today.getMonth(), today.getDate()));
+            const endDate = new Date(Date.UTC(today.getFullYear(), today.getMonth(), today.getDate() + 1));
 
             const events = await Calendar.getEventsAsync(
                 [defaultCalendar.id],
@@ -127,12 +133,49 @@ export default function MainScreen() {
 
             const officeDayEvents = events
                 .filter(event => event.title === 'Office Day' && event.allDay === true)
-                .map(event => ({
-                    id: event.id,
-                    title: event.title,
-                    startDate: new Date(event.startDate),
-                    endDate: new Date(event.endDate),
-                }))
+                .map(event => {
+                    // For UTC events, we need to create a local date that represents the same calendar day
+                    // without timezone conversion affecting the display
+                    const eventDate = new Date(event.startDate);
+
+                    // If this is a UTC event (which our app creates), extract the UTC date components
+                    // and create a local date with the same year, month, and day
+                    if (event.timeZone === 'UTC') {
+                        const utcYear = eventDate.getUTCFullYear();
+                        const utcMonth = eventDate.getUTCMonth();
+                        const utcDate = eventDate.getUTCDate();
+
+                        // Create a local date with the same calendar date as the UTC event
+                        const localDate = new Date(utcYear, utcMonth, utcDate);
+
+                        return {
+                            id: event.id,
+                            title: event.title,
+                            startDate: localDate,
+                            endDate: new Date(event.endDate),
+                        };
+                    }
+
+                    // For non-UTC events, use the original logic
+                    if (event.timeZone && event.timeZone !== 'UTC') {
+                        // For non-UTC events, ensure we get the correct local date
+                        const localStartDate = new Date(eventDate.getTime() + eventDate.getTimezoneOffset() * 60000);
+                        return {
+                            id: event.id,
+                            title: event.title,
+                            startDate: localStartDate,
+                            endDate: new Date(event.endDate),
+                        };
+                    }
+
+                    // Default case: use the date as-is
+                    return {
+                        id: event.id,
+                        title: event.title,
+                        startDate: eventDate,
+                        endDate: new Date(event.endDate),
+                    };
+                })
                 .sort((a, b) => b.startDate.getTime() - a.startDate.getTime());
 
             setPastOfficeDays(officeDayEvents);
@@ -150,6 +193,7 @@ export default function MainScreen() {
         let workingDays = 0;
         let officeDays = 0;
 
+        // First, count working days (Mon-Fri) in the current month
         for (let day = 1; day <= daysInMonth; day++) {
             const date = new Date(year, month, day);
             const dayOfWeek = date.getDay();
@@ -157,20 +201,17 @@ export default function MainScreen() {
             // Monday = 1, Tuesday = 2, ..., Friday = 5
             if (dayOfWeek >= 1 && dayOfWeek <= 5) {
                 workingDays++;
-
-                // Check if this day has an office day event
-                const hasOfficeDay = pastOfficeDays.some(event => {
-                    const eventDate = new Date(event.startDate);
-                    return eventDate.getDate() === day &&
-                        eventDate.getMonth() === month &&
-                        eventDate.getFullYear() === year;
-                });
-
-                if (hasOfficeDay) {
-                    officeDays++;
-                }
             }
         }
+
+        // Then, count all office days in the current month (regardless of day of week)
+        // Use UTC methods to ensure consistent date comparison
+        officeDays = pastOfficeDays.filter(event => {
+            const eventDate = new Date(event.startDate);
+            // Use UTC methods to avoid timezone conversion issues
+            return eventDate.getUTCMonth() === month &&
+                eventDate.getUTCFullYear() === year;
+        }).length;
 
         const percentage = workingDays > 0 ? Math.round((officeDays / workingDays) * 100) : 0;
         setMonthStats({ workingDays, officeDays, percentage });
@@ -196,15 +237,16 @@ export default function MainScreen() {
                 throw new Error('No calendar available');
             }
 
-            const startDate = new Date(selectedDate.getFullYear(), selectedDate.getMonth(), selectedDate.getDate());
-            const endDate = new Date(selectedDate.getFullYear(), selectedDate.getMonth(), selectedDate.getDate() + 1);
+            // Create dates in UTC to avoid timezone issues
+            const startDate = new Date(Date.UTC(selectedDate.getFullYear(), selectedDate.getMonth(), selectedDate.getDate()));
+            const endDate = new Date(Date.UTC(selectedDate.getFullYear(), selectedDate.getMonth(), selectedDate.getDate() + 1));
 
             await Calendar.createEventAsync(defaultCalendar.id, {
                 title: 'Office Day',
                 startDate: startDate,
                 endDate: endDate,
                 allDay: true,
-                timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+                timeZone: 'UTC', // Use UTC to avoid timezone conversion issues
                 location: 'Office',
                 notes: 'Logged via Office Day Tracker app',
             });

@@ -37,15 +37,16 @@ export class CalendarService {
 
         try {
             const today = new Date();
-            const startDate = new Date(today.getFullYear(), today.getMonth(), today.getDate());
-            const endDate = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1);
+            // Use UTC dates to avoid timezone issues
+            const startDate = new Date(Date.UTC(today.getFullYear(), today.getMonth(), today.getDate()));
+            const endDate = new Date(Date.UTC(today.getFullYear(), today.getMonth(), today.getDate() + 1));
 
             const eventDetails = {
                 title: 'Office Day',
                 startDate: startDate,
                 endDate: endDate,
                 allDay: true,
-                timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+                timeZone: 'UTC', // Use UTC to avoid timezone conversion issues
                 location: 'Office',
                 notes: 'Logged via Office Day Tracker app',
                 alarms: [],
@@ -74,8 +75,9 @@ export class CalendarService {
 
         try {
             const today = new Date();
-            const startDate = new Date(today.getFullYear(), today.getMonth(), today.getDate());
-            const endDate = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1);
+            // Use UTC dates to avoid timezone issues
+            const startDate = new Date(Date.UTC(today.getFullYear(), today.getMonth(), today.getDate()));
+            const endDate = new Date(Date.UTC(today.getFullYear(), today.getMonth(), today.getDate() + 1));
 
             const events = await Calendar.getEventsAsync(
                 [this.defaultCalendarId],

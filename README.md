@@ -271,7 +271,15 @@ eas build --platform all
 
 ## 📄 License
 
-MIT License - feel free to use this code for your own projects!
+This project is licensed under the **GNU General Public License v3.0** - see the [LICENSE](LICENSE) file for details.
+
+**Key Points:**
+- **Free Software**: You can use, modify, and distribute this software
+- **Copyleft**: Modified versions must also be released under GPL v3
+- **Source Code**: You must provide access to the source code when distributing
+- **No Warranty**: The software comes with absolutely no warranty
+
+For more information about GPL v3, visit [https://www.gnu.org/licenses/](https://www.gnu.org/licenses/).
 
 ## 🆘 Support
 
