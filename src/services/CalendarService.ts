@@ -75,9 +75,9 @@ export class CalendarService {
 
         try {
             const today = new Date();
-            // Use UTC dates to avoid timezone issues
-            const startDate = new Date(Date.UTC(today.getFullYear(), today.getMonth(), today.getDate()));
-            const endDate = new Date(Date.UTC(today.getFullYear(), today.getMonth(), today.getDate() + 1));
+            // Create a date range that covers the entire day in local time
+            const startDate = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+            const endDate = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1);
 
             const events = await Calendar.getEventsAsync(
                 [this.defaultCalendarId],

@@ -46,6 +46,16 @@ jest.mock('react-native-screens', () => ({
 
 // React Native mocking is handled by jest-expo preset
 
+// Mock Alert
+global.Alert = {
+    alert: jest.fn((title, message, buttons) => {
+        // Simulate user clicking the Delete button (index 1)
+        if (buttons && buttons[1] && buttons[1].onPress) {
+            buttons[1].onPress();
+        }
+    })
+};
+
 // Global test timeout
 jest.setTimeout(10000);
 

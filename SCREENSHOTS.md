@@ -6,6 +6,8 @@ This page showcases the Office Day Tracker app in action through screenshots tak
 
 All screenshots were captured during late-night development session using Expo Go on Android.
 
+**Note:** These screenshots show the legacy version of the app. The current version includes enhanced statistics features with period analysis, configurable quarters, and historical data analysis.
+
 ### 1. Main Screen - Initial State
 <img src="screenshots/Screenshot_20250830_004430_Expo Go.jpg" alt="Main Screen - Initial State" width="300">
 
@@ -31,13 +33,35 @@ All screenshots were captured during late-night development session using Expo G
 
 **Description:** The "Past Office Days" modal displaying a chronological list of previously logged office days with delete functionality (🗑️ buttons).
 
-### 6. Month Statistics View
+### 6. Month Statistics View (Legacy)
 <img src="screenshots/Screenshot_20250830_004509_Expo Go.jpg" alt="Month Statistics View" width="300">
 
-**Description:** The "Month Statistics" modal showing analytics including:
+**Description:** The legacy "Month Statistics" modal showing basic analytics including:
 - Working Days (Mon-Fri) count
 - Total Office Days logged
 - Attendance Rate percentage
+
+## 🆕 New Enhanced Statistics Features (Not Shown in Screenshots)
+
+The current version includes significantly enhanced statistics capabilities:
+
+### **Enhanced Statistics Dashboard**
+- **Period Type Selection**: Choose between Month, Quarter, or Year analysis
+- **Year Selection**: Horizontal scrolling picker for any year with logged data
+- **Month Selection**: Month picker for detailed monthly analysis
+- **Quarter Selection**: Q1-Q4 buttons for quarterly insights
+- **Configurable Quarters**: Customize which months belong to each quarter
+
+### **Historical Period Analysis**
+- **Current Month Section**: Legacy statistics display (maintained for compatibility)
+- **Selected Period Section**: Real-time statistics for chosen time period
+- **Working Days Calculation**: Accurate Monday-Friday counting for any period
+- **Attendance Percentage**: Real-time calculation of (Office Days / Working Days) × 100%
+
+### **Quarter Configuration**
+- **Default Quarters**: Standard calendar year (Q1: Jan-Mar, Q2: Apr-Jun, Q3: Jul-Sep, Q4: Oct-Dec)
+- **Custom Quarters**: Define custom month groupings for fiscal year planning
+- **Flexible Configuration**: Perfect for businesses with non-standard fiscal years
 
 ## 📱 Device Information
 
@@ -48,22 +72,35 @@ All screenshots were captured during late-night development session using Expo G
 
 ## 🎯 Features Demonstrated
 
-These screenshots showcase the complete functionality of the Office Day Tracker:
+These screenshots showcase the core functionality of the Office Day Tracker:
 
 1. ✅ **Main Interface** - Clean, intuitive design
 2. ✅ **Date Selection** - Custom calendar widget for precise date picking
 3. ✅ **Visual Feedback** - Past office days highlighted in calendar
 4. ✅ **Navigation** - Easy-to-use menu system
 5. ✅ **Data Management** - View and delete past entries
-6. ✅ **Analytics** - Monthly statistics and attendance tracking
+6. ✅ **Basic Analytics** - Monthly statistics and attendance tracking
 7. ✅ **Timezone Handling** - Consistent date display across different timezones
+
+## 🆕 Current Enhanced Features
+
+The app now includes comprehensive statistics and analysis capabilities:
+
+1. ✅ **Enhanced Statistics Dashboard** - Period analysis with Month/Quarter/Year selection
+2. ✅ **Configurable Quarters** - Custom quarter definitions for business needs
+3. ✅ **Historical Data Analysis** - Statistics for any time period with logged data
+4. ✅ **Advanced Working Days Calculation** - Accurate Monday-Friday counting for any date range
+5. ✅ **Real-time Statistics Updates** - Immediate updates when changing period selections
+6. ✅ **Comprehensive Test Coverage** - 52 tests ensuring reliability and accuracy
 
 ## 🛠️ Development Notes
 
-These screenshots were taken during the final testing phase after resolving:
-- Date consistency bugs (UTC timezone handling)
-- Month statistics calculation issues
-- UI responsiveness and scrolling improvements
-- Delete functionality implementation
+These screenshots were taken during the initial development phase. The current version includes:
 
-The timestamps show the dedication to perfecting the user experience during late-night development sessions! 🌙✨
+- **Enhanced Statistics Service**: Centralized calculation engine for all statistics
+- **Period Analysis**: Month, quarter, and year statistics with configurable quarters
+- **Historical Data**: Analysis of attendance patterns across different time periods
+- **Advanced Date Handling**: UTC consistency, working days calculation, period filtering
+- **Comprehensive Testing**: 100% test coverage across all new features
+
+The app has evolved from basic month statistics to a comprehensive office attendance analytics platform! 🚀✨

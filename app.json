@@ -5,27 +5,40 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "userInterfaceStyle": "light",
+    "icon": "./assets/icon.png",
+    "notification": {
+      "icon": "./assets/notification-icon.png"
+    },
     "assetBundlePatterns": [
       "**/*"
     ],
     "ios": {
       "supportsTablet": true,
+      "icon": "./assets/icon.png",
       "infoPlist": {
-        "NSCalendarsUsageDescription": "This app needs access to your calendar to log office days."
-      }
+        "NSCalendarsUsageDescription": "This app needs access to your calendar to log office days.",
+        "ITSAppUsesNonExemptEncryption": false
+      },
+      "bundleIdentifier": "com.officedaytracker.app"
     },
     "android": {
       "package": "com.officedaytracker.app",
       "versionCode": 1,
+      "icon": "./assets/icon.png",
       "adaptiveIcon": {
-        "backgroundColor": "#ffffff"
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#667eea"
       },
       "permissions": [
         "READ_CALENDAR",
-        "WRITE_CALENDAR"
+        "WRITE_CALENDAR",
+        "android.permission.READ_CALENDAR",
+        "android.permission.WRITE_CALENDAR"
       ]
     },
-    "web": {},
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
     "platforms": [
       "ios",
       "android"
@@ -37,6 +50,11 @@
           "calendarPermission": "Allow Office Day Tracker to access your calendar to log office days."
         }
       ]
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "a432d8a8-dda0-4e52-81c4-0676df434831"
+      }
+    }
   }
 }
