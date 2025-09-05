@@ -104,6 +104,16 @@ The screenshots demonstrate:
 
 **Prerequisites**: Node.js 18+, npm, and [Expo Go app](https://expo.dev/client) on your mobile device
 
+### 📱 Android Beta Download
+
+**Ready to test?** Download the Android beta APK directly:
+
+**[⬇️ Download Android Beta APK](https://expo.dev/artifacts/eas/owQRQCQnaYDVdCmuXSAD1B.apk)**
+
+*Install the APK on your Android device to experience the full Office Day Tracker with enhanced statistics features!*
+
+### 🛠️ Development Setup
+
 ```bash
 git clone https://github.com/navinvarma/officedaytracker.git
 cd officedaytracker
